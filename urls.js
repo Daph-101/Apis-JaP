@@ -3,24 +3,24 @@ var URL_Fiat = 'https://daph-101.github.io/Apis-JaP/Fiat.json'
 var URL_Peugeot = 'https://daph-101.github.io/Apis-JaP/Peugeot.json'
 var URL_Suzuki = 'https://daph-101.github.io/Apis-JaP/Suzuki.json'
 
-var getJSONData = function (url) {
-    var result = {};
-    return fetch(url)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw Error(response.statusText);
-        }
-      })
-      .then(function (response) {
-        result.status = 'ok';
-        result.data = response;
-        return result;
-      })
-      .catch(function (error) {
-        result.status = 'error';
-        result.data = error;
-        return result;
-      });
-  }
+function autos(URL_C_Onix){
+
+document.getElementById("informacion").innerHTML = "";
+
+  fetch(URL_C_Onix)
+  .then(req => req.json())
+  .then(MostrarAutos =>{
+    MostrarAutos.forEach(element => {
+      let auto = " ";
+      auto= `
+      <p>Nombre:` + element.name + `</p>`;
+      `<p>Descripcion:` + element.descripción + `</p>`;
+      `<p>Cantidad de ventas: ` + element.soldCount + `</p>`;
+      `<p>Fotos del vehiculo ` + element.imágenes + `</p>`;
+    });
+    
+    document.getElementById("informacion").innerHTML += auto;
+  })
+  autos(URL_C_Onix)
+}
+
