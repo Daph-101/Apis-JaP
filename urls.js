@@ -10,20 +10,22 @@ function autos(){
   .then(MostrarAutos =>{
     MostrarAutos.forEach(element => {
       let auto = " ";
+      let images = " ";
       auto= `<ul>
-      <ol> <img src=" ` + element.images + ` " style="width:350px;">` + `</ol>
-      <a href="product-info.html"><button id="info-auto">Ver más</button></a> <br>
-      <ol>` + `<strong>Marca: </strong>` + element.name +`</ol>
-      <ol>` + `<strong>Descripcion: </strong>`+ element.description + `</ol>
-      <ol>` + `<strong>Precio: </strong>` + element.cost + `</ol>
+      
+      <a href="info-autos.html"><button id="info-auto">Ver más</button></a> <br>
+      <p>` + `<strong>Marca: </strong>` + element.name +`</p>
+      <p>` + `<strong>Descripcion: </strong>`+ element.description + `</p>
+      <p>` + `<strong>Precio: </strong>` + element.cost + `</p>
   </ul>`
       
+  
+  images += `  <img class="img" src="img/${element.name}" style="width:350px;">` + `</p>`;
       document.getElementById("informacion").innerHTML += auto;
+      document.getElementById("imagenes").innerHTML = images;
     });
     
   })
-// .then(MostrarImg){
-//   fetch()
-// }
+
 }
 
