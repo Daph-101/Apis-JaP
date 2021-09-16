@@ -3,24 +3,27 @@ var URL_Fiat = 'https://daph-101.github.io/Apis-JaP/Fiat.json'
 var URL_Peugeot = 'https://daph-101.github.io/Apis-JaP/Peugeot.json'
 var URL_Suzuki = 'https://daph-101.github.io/Apis-JaP/Suzuki.json'
 
-function autos(URL_C_Onix){
-
-document.getElementById("informacion").innerHTML = "";
+function autos(){
 
   fetch(URL_C_Onix)
   .then(req => req.json())
   .then(MostrarAutos =>{
     MostrarAutos.forEach(element => {
       let auto = " ";
-      auto= `
-      <p>Nombre:` + element.name + `</p>`;
-      `<p>Descripcion:` + element.descripción + `</p>`;
-      `<p>Cantidad de ventas: ` + element.soldCount + `</p>`;
-      `<p>Fotos del vehiculo ` + element.imágenes + `</p>`;
+      auto= `<ul>
+      <ol> <img src=" ` + element.images + ` " style="width:350px;">` + `</ol>
+      <a href="product-info.html"><button id="info-auto">Ver más</button></a> <br>
+      <ol>` + `<strong>Marca: </strong>` + element.name +`</ol>
+      <ol>` + `<strong>Descripcion: </strong>`+ element.description + `</ol>
+      <ol>` + `<strong>Precio: </strong>` + element.cost + `</ol>
+  </ul>`
+      
+      document.getElementById("informacion").innerHTML += auto;
     });
     
-    document.getElementById("informacion").innerHTML += auto;
   })
-  autos(URL_C_Onix)
+// .then(MostrarImg){
+//   fetch()
+// }
 }
 
