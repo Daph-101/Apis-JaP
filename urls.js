@@ -18,7 +18,7 @@ function autos(){
       <p>` + `<strong>Marca: </strong>` + element.name +`</p>
       <p>` + `<strong>Descripcion: </strong>`+ element.description + `</p>
       <p>` + `<strong>Precio: </strong>` + element.cost + `</p>
-  </div>`
+      </div>`
       
  
       document.getElementById("informacion").innerHTML += auto;
@@ -43,3 +43,28 @@ function MostrarImg(url){
   document.getElementById("imagenes").innerHTML = Img;
   
 }
+
+
+
+// async function getLinks(autos){
+//   let array = [];
+
+//   for(let auto of autos){
+//   let array = fetch(`https://daph-101.github.io/Apis-JaP/${auto}`).then(
+//     Respuesta  => {
+//       if(Respuesta.status != 200){
+//         return null;
+//       } else {
+//         return Respuesta.json();
+//       }
+      
+//     },
+//     error =>{
+//       return null;
+//     }
+//   );
+//   array.push(auto);
+// }
+// let results = await Promise.all(array);
+// return results;
+// }
