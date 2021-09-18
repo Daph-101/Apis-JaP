@@ -2,7 +2,10 @@ var URL_C_Onix ='https://daph-101.github.io/Apis-JaP/C_Onix.json'
 var URL_Fiat = 'https://daph-101.github.io/Apis-JaP/Fiat.json'
 var URL_Peugeot = 'https://daph-101.github.io/Apis-JaP/Peugeot.json'
 var URL_Suzuki = 'https://daph-101.github.io/Apis-JaP/Suzuki.json'
+var comentarios = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 var url;
+
+
 function autos(){
 
   fetch(URL_Fiat)
@@ -27,7 +30,7 @@ function autos(){
     MostrarImg(url);
   })
 
-}
+};
 function MostrarImg(url){
  url = [URL_C_Onix, URL_Fiat];
 
@@ -45,26 +48,25 @@ function MostrarImg(url){
 }
 
 
+function Comen(){
 
-// async function getLinks(autos){
-//   let array = [];
+  fetch("https://japdevdep.github.io/ecommerce-api/product/5678-comments.json")
+  .then(req => req.json())
+  .then(MostrarCom =>{
+    MostrarCom.forEach(com =>{
 
-//   for(let auto of autos){
-//   let array = fetch(`https://daph-101.github.io/Apis-JaP/${auto}`).then(
-//     Respuesta  => {
-//       if(Respuesta.status != 200){
-//         return null;
-//       } else {
-//         return Respuesta.json();
-//       }
-      
-//     },
-//     error =>{
-//       return null;
-//     }
-//   );
-//   array.push(auto);
-// }
-// let results = await Promise.all(array);
-// return results;
-// }
+      let mostrar = "";
+      mostrar= `
+      <h4>` + `Fecha:` + com.dateTime + `</h4><br>
+      <h4>` + `Usuario:` + com.user + `</h4><br>
+      <h4>` + `Descripción:`  + com.description + `<br></h4>
+      <h4>` + `Puntaje:`  + com.score + `</h4><br>
+      `;
+      document.getElementById("DatosCom").innerHTML += mostrar
+        
+    })
+  
+  })
+
+}
+

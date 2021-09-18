@@ -7,11 +7,27 @@
     <title>Info de autos</title>
 </head>
 
-<body onload="autos()">
+<body onload="autos(), Comen()">
     <div id="informacion">
         <div id="imagenes" style="position: relative; bottom:-300px;"></div>
     </div>
-    
+    <div class="conteiner">
+        <h4 id="DatosCom"></h4>
+        <div class="agregar">
+            <form>
+                <input type="text" placeholder="Agregar un comentario nuevo">
+                <button class="btn-add">Enviar</button>
+            </form>
+        </div>
+        <div class="li-container">
+            <ul>
+
+            </ul>
+        </div>
+        <div class="empty">
+            <p>No hay comentarios.</p>
+        </div>
+    </div>
     <script src="urls.js"></script>
     <script src="C_Onix.json"></script>
     <script src="Fiat.json"></script>
