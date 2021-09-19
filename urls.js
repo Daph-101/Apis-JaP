@@ -38,7 +38,7 @@ function MostrarImg(url){
   let Img = "";
   Img += `
   ` + linea +`
-  <img src="img/car1.jpg" style="width:130px;">
+    <img src="img/car1.jpg" style="width:130px;">
     <img src="img/cat1.jpg" style="width:120px;">
     <img src="img/car3.jpg" style="width:150px;">
  
